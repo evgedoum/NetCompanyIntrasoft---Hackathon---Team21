@@ -1,7 +1,7 @@
 name: Cypress tests
 on: push
 jobs:
-  ci:
+  Cypress_run :
     name: Cypress run
     runs-on: ubuntu-latest
     steps:
@@ -17,4 +17,8 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests 
-        run: npm run test
+        run: npx cypress run --record --spec cypress/e2e/hackathon --key 4b574345-4c3b-4af9-a8a7-320b1dfb684c
+          
+
+    
+      
