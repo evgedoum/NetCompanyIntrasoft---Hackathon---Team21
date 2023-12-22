@@ -95,5 +95,25 @@ describe('example to-do app', () => {
         });
 
       });
+
+      it('TC3: Add a negative quantity of a product to cart', () => {
+        cy.add_quantity_by_text('Brocolli - 1 Kg', '-1');
+        cy.click_add_to_cart('Brocolli - 1 Kg');
+        cy.check_add_to_cart_button_change('Brocolli - 1 Kg');
+        
+        cy.get('.cart-info table tbody tr:nth-child(1) td:nth-child(3)',{scrollBehavior: 'top'}).should('have.text', '0');
+        cy.get('.cart-info table tbody tr:nth-child(2) td:nth-child(3)',{scrollBehavior: 'top'}).should('have.text', '0');
+      });
+
+      //doesn't work in firefox
+    //   it('TC4: Add "a" as quantity of a product to cart', () => {
+    //     cy.add_quantity_by_text('Brocolli - 1 Kg', 'a');
+    //     cy.click_add_to_cart('Brocolli - 1 Kg');
+    //     cy.check_add_to_cart_button_change('Brocolli - 1 Kg');
+        
+    //     cy.get('.cart-info table tbody tr:nth-child(1) td:nth-child(3)',{scrollBehavior: 'top'}).should('have.text', '0');
+    //     cy.get('.cart-info table tbody tr:nth-child(2) td:nth-child(3)',{scrollBehavior: 'top'}).should('have.text', '0');
+    //   });
+    
   })
   
