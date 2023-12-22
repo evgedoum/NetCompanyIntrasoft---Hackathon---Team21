@@ -1,21 +1,20 @@
 name: Cypress tests
 on: push
 jobs:
-  cypress-run:
-    ci:
-      name: Cypress run
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout repo
-          uses: actions/checkout@v2
-         
-        - name: setup node
-          uses: actions/setup-node@v3
-          with:
-            node-version: 16
-         
-        - name: Install dependencies
-          run: npm install
+  ci:
+    name: Cypress run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+        
+      - name: Install dependencies
+        run: npm install
 
-        - name: Run Cypress tests 
-          run: npm run test
+      - name: Run Cypress tests 
+        run: npm run test
