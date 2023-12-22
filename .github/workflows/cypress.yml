@@ -6,16 +6,16 @@ jobs:
       name: Cypress run
       runs-on: ubuntu-latest
       steps:
-        -name: Checkout repo
-         uses: actions/checkout@v2
+        - name: Checkout repo
+          uses: actions/checkout@v2
          
-         -name: setup node
+        - name: setup node
           uses: actions/setup-node@v3
           with:
             node-version: 16
          
-         -name: Install dependencies
+        - name: Install dependencies
           run: npm install
 
-         -name: Run Cypress tests 
-          run: npm run cypress
+        - name: Run Cypress tests 
+          run: npm run test
