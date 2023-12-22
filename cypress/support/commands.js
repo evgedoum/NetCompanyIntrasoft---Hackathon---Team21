@@ -33,6 +33,14 @@ Cypress.Commands.add('click_increment', (product_name, times) => {
     }
 });
 
+Cypress.Commands.add('add_quantity_by_text', (product_name, value) => { 
+    cy.get('.product-name').contains(product_name).siblings('.stepper-input').children('.quantity').click().clear();
+    cy.wait(20);
+    cy.get('.product-name').contains(product_name).siblings('.stepper-input').children('.quantity').type(value);
+
+});
+
+
 Cypress.Commands.add('check_add_to_cart_button_change', (product_name) => {
     cy.get(".added").should("contain", "ADDED").parent().siblings('.product-name').contains(product_name);
 });
@@ -58,3 +66,4 @@ Cypress.Commands.add('click_cart_and_check_if_opens', () => {
     // check if cart preview is open
     cy.get('.cart-preview');
 });
+
