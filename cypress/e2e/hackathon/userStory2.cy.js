@@ -15,10 +15,14 @@ describe('example to-do app', () => {
       cy.click_cart_and_check_if_opens();
     })
 
-    it('TC5: Complete an order without promo code', () => {
+    it('TC7: Complete an order without selecting country', () => {
         cy.get('.cart-preview').children('.action-block').click();
         cy.contains('Place Order');
-        cy.get('.totAmt').should('have.text', '384');
+        cy.get('.totAmt').should('have.text', '384 ');
+        cy.contains('Place Order').click();
+        cy.get('.chkAgree').click();
 
+        cy.contains('Proceed').click();
+        cy.contains('Thank you, your order has been placed successfully').should('not.exist');
       });
 })
